@@ -497,6 +497,36 @@ Every required top-level key MUST exist.
 
 If information is unavailable, use null.
 
+SUBTOTAL EXTRACTION RULES:
+
+The "subtotal" field represents the taxable/pre-tax amount
+before tax is added.
+
+Look for labels such as:
+
+- Subtotal
+- Sub Total
+- Taxable Value
+- Taxable Amount
+- Net Amount Before Tax
+- Amount Before Tax
+- Total Before Tax
+
+For invoices using Indian GST terminology:
+
+"Taxable Value" MUST be mapped to "subtotal".
+
+Example:
+
+Taxable Value
+112000
+
+must become:
+
+"subtotal": 112000
+
+Do not return null when an explicit taxable value is present.
+
 ============================================================
 FINAL CHECK
 ============================================================

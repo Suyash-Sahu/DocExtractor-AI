@@ -446,7 +446,11 @@ def run_validation(
     """
     Run all deterministic validation checks.
 
-    Returns a structured validation result.
+    A check returning False means the document failed validation.
+
+    A check returning None means the check could not be performed.
+    For financial documents, an unavailable arithmetic check is treated
+    as requiring human review rather than being silently accepted.
     """
 
     # --------------------------------------------------------
@@ -497,12 +501,17 @@ def run_validation(
         document_dict,
         document.document_type,
     )
+
+    # --------------------------------------------------------
+    # Optional fields
+    # --------------------------------------------------------
+
     optional_warnings = validate_optional_fields(
         document_dict
     )
 
     # --------------------------------------------------------
-    # Determine overall validity
+    # Individual checks
     # --------------------------------------------------------
 
     checks = {
@@ -512,16 +521,94 @@ def run_validation(
         "dates": date_check["passed"],
     }
 
+    # --------------------------------------------------------
+    # Failed checks
+    #
+    # False = explicitly failed
+    # None  = could not be verified
+    # --------------------------------------------------------
+
     failed_checks = [
         name
         for name, value in checks.items()
         if value is False
     ]
 
+    unverifiable_checks = [
+        name
+        for name, value in checks.items()
+        if value is None
+    ]
+
+    # --------------------------------------------------------
+    # Validation warnings
+    # --------------------------------------------------------
+
+    warnings = (
+        date_check["warnings"]
+        + optional_warnings
+    )
+
+    # --------------------------------------------------------
+    # Important:
+    #
+    # An unavailable financial check must NOT result in
+    # ACCEPTED status.
+    #
+    # Example:
+    #
+    # subtotal = None
+    # total = 140000
+    #
+    # We cannot verify:
+    #
+    # subtotal + tax - discount = total
+    #
+    # Therefore human review is required.
+    # --------------------------------------------------------
+
+    if unverifiable_checks:
+
+        for check_name in unverifiable_checks:
+
+            if check_name == "subtotal":
+
+                warnings.append(
+                    "Subtotal could not be verified."
+                )
+
+            elif check_name == "total_matches":
+
+                warnings.append(
+                    "Total could not be verified because "
+                    "subtotal was unavailable."
+                )
+
+            elif check_name == "line_items":
+
+                warnings.append(
+                    "Line-item arithmetic could not be verified."
+                )
+
+            elif check_name == "dates":
+
+                warnings.append(
+                    "Date validation could not be completed."
+                )
+
+    # --------------------------------------------------------
+    # Overall validity
+    # --------------------------------------------------------
+
     is_valid = (
         len(missing_fields) == 0
         and len(failed_checks) == 0
+        and len(unverifiable_checks) == 0
     )
+
+    # --------------------------------------------------------
+    # Return result
+    # --------------------------------------------------------
 
     return {
         "is_valid": is_valid,
@@ -540,13 +627,10 @@ def run_validation(
 
         "failed_checks": failed_checks,
 
-        "warnings": (
-            date_check["warnings"]
-            + optional_warnings
-        ),
+        "unverifiable_checks": unverifiable_checks,
+
+        "warnings": warnings,
     }
-
-
 def validate_optional_fields(
     document_dict: dict,
 ) -> list[str]:

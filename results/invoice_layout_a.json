@@ -1,0 +1,108 @@
+{
+  "document_type": "invoice",
+  "document_id": "INV-2026-001",
+  "vendor": {
+    "name": "ABC Technologies Pvt Ltd",
+    "address": "Bengaluru, Karnataka, India",
+    "tax_id": "29ABCDE1234F1Z5"
+  },
+  "customer": {
+    "name": "XYZ Solutions Pvt Ltd",
+    "address": "Bengaluru, Karnataka, India",
+    "tax_id": null
+  },
+  "invoice_date": "2026-08-19",
+  "due_date": "2026-09-18",
+  "currency": null,
+  "line_items": [
+    {
+      "description": "Laptop",
+      "quantity": 2.0,
+      "unit_price": 55000.0,
+      "tax_rate": null,
+      "amount": 110000.0
+    },
+    {
+      "description": "Wireless Mouse",
+      "quantity": 2.0,
+      "unit_price": 1000.0,
+      "tax_rate": null,
+      "amount": 2000.0
+    }
+  ],
+  "subtotal": 112000.0,
+  "tax_amount": 20160.0,
+  "discount": null,
+  "total": 132160.0,
+  "payment_status": null,
+  "payment_method": null,
+  "validation": {
+    "status": "ACCEPTED",
+    "is_valid": true,
+    "confidence": 0.94,
+    "confidence_level": "HIGH",
+    "reasons": [],
+    "checks": {
+      "line_items": true,
+      "subtotal": true,
+      "total_matches": true,
+      "dates": true
+    },
+    "missing_fields": [],
+    "failed_checks": [],
+    "warnings": [
+      "Currency was not explicitly present in the document.",
+      "Payment method was not explicitly present."
+    ],
+    "details": {
+      "line_items": {
+        "passed": true,
+        "calculated_sum": 112000.0,
+        "items": [
+          {
+            "line": 1,
+            "description": "Laptop",
+            "calculated_amount": 110000.0,
+            "extracted_amount": 110000.0,
+            "difference": 0.0,
+            "passed": true
+          },
+          {
+            "line": 2,
+            "description": "Wireless Mouse",
+            "calculated_amount": 2000.0,
+            "extracted_amount": 2000.0,
+            "difference": 0.0,
+            "passed": true
+          }
+        ],
+        "message": "All line items passed arithmetic validation."
+      },
+      "subtotal": {
+        "passed": true,
+        "calculated_subtotal": 112000.0,
+        "extracted_subtotal": 112000.0,
+        "difference": 0.0,
+        "message": "Subtotal matches line-item sum."
+      },
+      "total": {
+        "passed": true,
+        "calculated_total": 132160.0,
+        "extracted_total": 132160.0,
+        "difference": 0.0,
+        "message": "Total matches subtotal + tax - discount."
+      },
+      "dates": {
+        "passed": true,
+        "invoice_date_valid": true,
+        "due_date_valid": true,
+        "warnings": []
+      }
+    }
+  },
+  "metadata": {
+    "source_file": "samples\\invoice_layout_a.pdf",
+    "document_type": "invoice",
+    "classification_confidence": 1.0
+  }
+}

@@ -1,0 +1,25 @@
+TAX INVOICE
+
+Invoice No: INV-INVALID-001
+
+Supplier: Test Technologies
+GSTIN: 29TEST1234F1Z5
+Bengaluru, Karnataka
+
+Customer: Demo Company
+Bengaluru, Karnataka
+
+Invoice Date: 19-Aug-2026
+Due Date: 18-Sep-2026
+
+Description     Qty     Amount
+
+Laptop          2       55000
+Mouse           2       1000
+
+Taxable Value: 112000
+CGST @ 9%: 10080
+SGST @ 9%: 10080
+
+Amount Payable: 140000
+Currency: INR
