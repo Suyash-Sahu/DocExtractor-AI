@@ -1122,3 +1122,9 @@ DECIDES
 The key idea is:
 
 > **The AI extracts the data. The system independently checks whether the data makes sense.**
+>
+> ## Screenshots
+> <img width="1314" height="580" alt="Screenshot 2026-08-20 171111" src="https://github.com/user-attachments/assets/11374ae3-cb8e-48a2-9e3e-3eb42b72b210" />
+<img width="1324" height="588" alt="Screenshot 2026-08-20 171055" src="https://github.com/user-attachments/assets/62c05f36-3924-4b5a-88d2-9f1cdc11f12b" />
+<img width="1320" height="583" alt="Screenshot 2026-08-20 171043" src="https://github.com/user-attachments/assets/87aab1f2-529e-4bdd-8ffb-1e80b9849adf" />
+<img width="1315" height="562" alt="Screenshot 2026-08-20 171121" src="https://github.com/user-attachments/assets/7ee67d96-ed17-4f25-9102-e8c11226a95b" />
