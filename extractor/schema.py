@@ -31,7 +31,7 @@ class ExtractedDocument(BaseModel):
 
     due_date: date | None = None
 
-    currency: str
+    currency: str | None = None
 
     line_items: list[LineItem] = Field(default_factory=list)
 
@@ -44,3 +44,5 @@ class ExtractedDocument(BaseModel):
     total: float
 
     payment_status: str | None = None
+
+    payment_method: str | None = None
