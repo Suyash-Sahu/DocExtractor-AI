@@ -1,0 +1,38 @@
+{
+  "document_type": "invoice",
+  "document_id": "TN-8742",
+  "vendor": {
+    "name": "TechNova Systems",
+    "address": "Bengaluru, Karnataka",
+    "tax_id": "29FGHIJ5678K1Z2"
+  },
+  "customer": {
+    "name": "ABC Engineering College",
+    "address": "Bengaluru, Karnataka",
+    "tax_id": null
+  },
+  "invoice_date": "2026-08-19",
+  "due_date": null,
+  "currency": "INR",
+  "line_items": [
+    {
+      "description": "Laptop",
+      "quantity": 1,
+      "unit_price": 65000,
+      "tax_rate": null,
+      "amount": 65000
+    },
+    {
+      "description": "Keyboard",
+      "quantity": 2,
+      "unit_price": 3000,
+      "tax_rate": null,
+      "amount": 6000
+    }
+  ],
+  "subtotal": 68000,
+  "tax_amount": 12240,
+  "discount": null,
+  "total": 80240,
+  "payment_status": null
+}

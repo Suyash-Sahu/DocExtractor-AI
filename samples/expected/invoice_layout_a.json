@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_id": "INV-2026-001",
+  "vendor": {
+    "name": "ABC Technologies Pvt Ltd",
+    "address": "Bengaluru, Karnataka, India",
+    "tax_id": "29ABCDE1234F1Z5"
+  },
+  "customer": {
+    "name": "XYZ Solutions Pvt Ltd",
+    "address": "Bengaluru, Karnataka, India"
+  },
+  "invoice_date": "2026-08-19",
+  "due_date": "2026-09-18",
+  "currency": "INR",
+  "line_items": [
+    {
+      "description": "Laptop",
+      "quantity": 2,
+      "unit_price": 55000,
+      "tax_rate": null,
+      "amount": 110000
+    },
+    {
+      "description": "Wireless Mouse",
+      "quantity": 2,
+      "unit_price": 1000,
+      "tax_rate": null,
+      "amount": 2000
+    }
+  ],
+  "subtotal": 112000,
+  "tax_amount": 20160,
+  "discount": 0,
+  "total": 132160,
+  "payment_status": null
+}

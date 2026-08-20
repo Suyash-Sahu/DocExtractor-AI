@@ -1,0 +1,16 @@
+TECH MART
+
+RETAIL RECEIPT
+
+Receipt No: RC-TXT-001
+Date: 20/08/2026
+
+USB Cable
+Quantity: 2
+Price: 500
+
+Subtotal: 1000
+GST: 180
+Total: 1180
+
+Payment: UPI

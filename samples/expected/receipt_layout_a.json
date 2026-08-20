@@ -1,0 +1,34 @@
+{
+  "document_type": "receipt",
+  "document_id": "RC-2026-091",
+  "vendor": {
+    "name": "TECH MART",
+    "address": "Bengaluru, Karnataka",
+    "tax_id": null
+  },
+  "customer": null,
+  "invoice_date": "2026-08-19",
+  "due_date": null,
+  "currency": "INR",
+  "line_items": [
+    {
+      "description": "USB Hub",
+      "quantity": 1,
+      "unit_price": 1200,
+      "tax_rate": null,
+      "amount": 1200
+    },
+    {
+      "description": "HDMI Cable",
+      "quantity": 2,
+      "unit_price": 500,
+      "tax_rate": null,
+      "amount": 1000
+    }
+  ],
+  "subtotal": 2200,
+  "tax_amount": 396,
+  "discount": null,
+  "total": 2596,
+  "payment_status": "paid"
+}
